@@ -4,6 +4,17 @@
 
 ## 启动
 
+### 本地启动
+
+下载 MediaMTX 二进制到 `.local/bin/mediamtx` 后执行：
+
+```bash
+chmod +x scripts/start-local.sh
+./scripts/start-local.sh
+```
+
+### Docker 启动
+
 ```bash
 docker compose up --build
 ```

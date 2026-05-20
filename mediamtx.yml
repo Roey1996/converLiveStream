@@ -22,6 +22,10 @@ rtsp: yes
 rtspAddress: :8554
 rtspTransports: [tcp, udp]
 
+rtmp: no
+hls: no
+srt: no
+
 webrtc: yes
 webrtcAddress: :8889
 webrtcAllowOrigins: ['*']
