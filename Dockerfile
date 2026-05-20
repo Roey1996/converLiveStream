@@ -5,6 +5,6 @@ WORKDIR /app
 COPY src ./src
 
 ENV PYTHONUNBUFFERED=1
-EXPOSE 8080
+EXPOSE 8236
 
 CMD ["python", "-m", "src.rtsp_webrtc_api"]

@@ -21,8 +21,9 @@ docker compose up --build
 
 默认端口：
 
-- API: `http://localhost:8080`
-- WebRTC: `http://localhost:8889`
+- API: `http://localhost:8236`
+- WebRTC: `http://localhost:8237`
+- WebRTC ICE/UDP: `8189/udp`
 - RTSP: `rtsp://localhost:8554`
 
 MediaMTX 的控制 API 只在 Docker 内部网络暴露，由本项目 API 服务调用。
@@ -30,7 +31,7 @@ MediaMTX 的控制 API 只在 Docker 内部网络暴露，由本项目 API 服�
 ## 创建转换流
 
 ```bash
-curl -X POST http://localhost:8080/api/streams \
+curl -X POST http://localhost:8236/api/streams \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "camera01",
@@ -46,8 +47,8 @@ curl -X POST http://localhost:8080/api/streams \
 {
   "name": "camera01",
   "rtspUrl": "rtsp://user:pass@192.168.1.10:554/stream1",
-  "webrtcUrl": "http://localhost:8889/camera01",
-  "whepUrl": "http://localhost:8889/camera01/whep",
+  "webrtcUrl": "http://localhost:8237/camera01",
+  "whepUrl": "http://localhost:8237/camera01/whep",
   "statusUrl": "/api/streams/camera01",
   "sourceOnDemand": true,
   "rtspTransport": "tcp"
@@ -59,15 +60,15 @@ curl -X POST http://localhost:8080/api/streams \
 ## 查询流状态
 
 ```bash
-curl http://localhost:8080/api/streams/camera01
+curl http://localhost:8236/api/streams/camera01
 ```
 
 ## 删除流
 
 ```bash
-curl -X DELETE http://localhost:8080/api/streams/camera01
+curl -X DELETE http://localhost:8236/api/streams/camera01
 ```
 
 ## 说明
 
-MediaMTX 会把配置里的 RTSP source 暴露成 WebRTC。根据 MediaMTX 文档，WebRTC 浏览器播放地址格式为 `http://localhost:8889/{path}`，WHEP 地址格式为 `http://localhost:8889/{path}/whep`。
+MediaMTX 会把配置里的 RTSP source 暴露成 WebRTC。根据 MediaMTX 文档，WebRTC 浏览器播放地址格式为 `http://localhost:8237/{path}`，WHEP 地址格式为 `http://localhost:8237/{path}/whep`。

@@ -10,9 +10,9 @@ import time
 
 
 MEDIAMTX_API_BASE = os.getenv("MEDIAMTX_API_BASE", "http://localhost:9997").rstrip("/")
-PUBLIC_WEBRTC_BASE = os.getenv("PUBLIC_WEBRTC_BASE", "http://localhost:8889").rstrip("/")
+PUBLIC_WEBRTC_BASE = os.getenv("PUBLIC_WEBRTC_BASE", "http://localhost:8237").rstrip("/")
 API_HOST = os.getenv("API_HOST", "0.0.0.0")
-API_PORT = int(os.getenv("API_PORT", "8080"))
+API_PORT = int(os.getenv("API_PORT", "8236"))
 
 PATH_NAME_RE = re.compile(r"^[A-Za-z0-9_.~-]{1,80}$")
 

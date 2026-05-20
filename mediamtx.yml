@@ -27,7 +27,9 @@ hls: no
 srt: no
 
 webrtc: yes
-webrtcAddress: :8889
+webrtcAddress: :8237
+webrtcLocalUDPAddress: :8189
+webrtcAdditionalHosts: [localhost]
 webrtcAllowOrigins: ['*']
 
 paths: {}

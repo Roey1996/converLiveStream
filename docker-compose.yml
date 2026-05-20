@@ -6,7 +6,8 @@ services:
       - ./mediamtx.yml:/mediamtx.yml:ro
     ports:
       - "8554:8554"
-      - "8889:8889"
+      - "8237:8237"
+      - "8189:8189/udp"
     expose:
       - "9997"
 
@@ -15,10 +16,10 @@ services:
     container_name: livestream-api
     environment:
       MEDIAMTX_API_BASE: http://mediamtx:9997
-      PUBLIC_WEBRTC_BASE: http://localhost:8889
+      PUBLIC_WEBRTC_BASE: http://localhost:8237
       API_HOST: 0.0.0.0
-      API_PORT: 8080
+      API_PORT: 8236
     ports:
-      - "8080:8080"
+      - "8236:8236"
     depends_on:
       - mediamtx
