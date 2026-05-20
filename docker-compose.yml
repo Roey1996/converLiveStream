@@ -1,0 +1,24 @@
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:1.18.2
+    container_name: livestream-mediamtx
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml:ro
+    ports:
+      - "8554:8554"
+      - "8889:8889"
+    expose:
+      - "9997"
+
+  api:
+    build: .
+    container_name: livestream-api
+    environment:
+      MEDIAMTX_API_BASE: http://mediamtx:9997
+      PUBLIC_WEBRTC_BASE: http://localhost:8889
+      API_HOST: 0.0.0.0
+      API_PORT: 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mediamtx

@@ -1,0 +1,29 @@
+logLevel: info
+
+authInternalUsers:
+  - user: any
+    pass:
+    ips: []
+    permissions:
+      - action: publish
+        path:
+      - action: read
+        path:
+      - action: playback
+        path:
+      - action: api
+      - action: metrics
+      - action: pprof
+
+api: yes
+apiAddress: :9997
+
+rtsp: yes
+rtspAddress: :8554
+rtspTransports: [tcp, udp]
+
+webrtc: yes
+webrtcAddress: :8889
+webrtcAllowOrigins: ['*']
+
+paths: {}
